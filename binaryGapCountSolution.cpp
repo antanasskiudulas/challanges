@@ -10,17 +10,15 @@ int solution(int N) {
     uint mask = 1;
     uint maxGap = 0;
     uint tempGap = 0;
-    bool noTrail = false;
-    
+    N |= N-1;
     while(mask < N)
     {
         if(mask & N)
         {
-            noTrail = true;
             maxGap = std::max(tempGap, maxGap);
             tempGap = 0;
         }
-        else if(noTrail)
+        else
         {
             tempGap += 1;
         }
